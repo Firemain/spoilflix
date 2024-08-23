@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { PlayIcon, BoltIcon, SpeakerWaveIcon } from '@heroicons/react/24/solid';
-import { getBackdrop, getTopMovies } from '@/actions/ApiTMDB';
+import { getBackdrop, getTopMovies } from '@/lib/ApiTMDB';
 
 export default async function FeaturedSection ({movie}) {
     

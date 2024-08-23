@@ -1,4 +1,4 @@
-import { getMoviesNowPlaying, getTopMovies, getTopSeries } from "@/actions/ApiTMDB";
+import { getMoviesNowPlaying, getTopMovies, getTopSeries } from "@/lib/ApiTMDB";
 import Navbar from "../components/header/navbar";  
 import SwiperPerView from "@/components/SwiperPerView";
 import FeaturedSection from "@/components/header/FeaturedSection";

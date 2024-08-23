@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { PlayIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, height, width }) {
   const { title, poster_path, vote_average } = movie;
 
   return (
