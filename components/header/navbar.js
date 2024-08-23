@@ -46,7 +46,7 @@ export default function Navbar() {
     >
       <div className="flex flex-wrap items-center justify-between mx-auto p-4">
 
-        <span className="text-purple-600 font-semibold text-xl">SPOILFLIX</span>
+        <span className="text-purple-600 font-semibold text-base lg:text-xl">SPOILFLIX</span>
 
         <div className='flex flex-row'>
           <div className="flex items-center px-5">
