@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 const TagCard = ({ number, data, width, height }) => {
 
-    console.log("Data dans la tagcard:", data);
     return (
         <div className="tag-card flex flex-row items-end px-6">
             <div className="">

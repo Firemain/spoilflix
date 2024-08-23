@@ -29,8 +29,6 @@ export default async function Home() {
   const topMovies = await fetchTopMovies();
   const topSeries = await fetchTopSeries();
 
-  console.log(topMovies);
-
   const randomMovie = getRandomMovie(topMovies);
 
   return (

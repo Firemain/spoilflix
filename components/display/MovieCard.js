@@ -10,7 +10,6 @@ export default function MovieCard({ movie, height, width }) {
       <Image
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={title}
-        layout="responsive"
         width={300}
         height={450}
         className="rounded-md object-cover"
@@ -19,7 +18,7 @@ export default function MovieCard({ movie, height, width }) {
       {/* Info Popup on Hover */}
       <div className="absolute top-0 left-0 right-0 h-full z-10 p-4 bg-black bg-opacity-70 text-white shadow-lg rounded-md opacity-0 hover:opacity-100 transition-opacity duration-300">
         <h2 className="text-lg font-bold">{title}</h2>
-        <p className="text-sm">Rating: {vote_average}</p>
+        <p className="text-sm">Rating: {Math.round(10*vote_average)/10}</p>
         
         <div className="flex space-x-4 mt-4">
           <button className="flex items-center bg-white text-purple-950 hover:bg-purple-950 hover:text-white transition duration-300 py-1 px-2 rounded ">

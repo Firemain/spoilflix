@@ -8,7 +8,6 @@ export const metadata = {
   description: "SpoilFlix: Your ultimate platform for spoilers, reviews, and lists. Create and share your own movie lists, spoil alerts, and explore detailed movie summaries.",
   keywords: "movies, spoilers, film reviews, movie lists, cinema, movie summaries, SpoilFlix",
   author: "SpoilFlix Team",
-  viewport: "width=device-width, initial-scale=1.0",
   charset: "UTF-8",
   robots: "index, follow",
   og: {
