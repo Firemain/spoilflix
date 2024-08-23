@@ -38,7 +38,7 @@ export default async function Home() {
 
       <FeaturedSection movie={randomMovie}></FeaturedSection>
 
-      <div className="mt-2 md:mt-0">
+      <div className="mt-2 md:mt-0 w-full">
 
       <div className="max-w-full py-6">
         <SwiperPerView movies={nowPlaying} title={"En ce moment au cinéma"}></SwiperPerView>          

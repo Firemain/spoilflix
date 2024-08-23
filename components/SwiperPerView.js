@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,6 +12,7 @@ import "./styles.css";
 export default function SwiperPerView({ movies, title }) {
   const swiperRef = useRef(null);
   const [isMoved, setIsMoved] = useState(false);
+  const [chunkSize, setChunkSize] = useState(6); // Initial chunk size
 
   const handleClick = (direction) => {
     setIsMoved(true);
@@ -26,7 +27,7 @@ export default function SwiperPerView({ movies, title }) {
     }
   };
 
-  // Helper function to group movies into chunks of 4
+  // Helper function to group movies into chunks of chunkSize
   const chunkArray = (array, chunkSize) => {
     const results = [];
     for (let i = 0; i < array.length; i += chunkSize) {
@@ -35,8 +36,31 @@ export default function SwiperPerView({ movies, title }) {
     return results;
   };
 
-  // Group movies into chunks of 4
-  const movieChunks = chunkArray(movies, 6);
+  // Set chunk size based on window width
+  useEffect(() => {
+    const updateChunkSize = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setChunkSize(3);
+      }  else if (width < 1024) {
+        setChunkSize(4);
+      } else if (width < 1280) {
+        setChunkSize(5);
+      } else {
+        setChunkSize(6);
+      }
+    };
+
+    updateChunkSize(); // Set initial chunk size
+    window.addEventListener('resize', updateChunkSize);
+
+    return () => {
+      window.removeEventListener('resize', updateChunkSize);
+    };
+  }, []);
+
+  // Group movies into chunks of chunkSize
+  const movieChunks = chunkArray(movies, chunkSize);
 
   return (
     <div className="relative w-full group mt-6">
