@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import NavLink from './navlink';
 import OverlayMenu from './overlaymenu';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,8 +46,10 @@ export default function Navbar() {
       style={{ background: 'linear-gradient(to bottom, #1e1923, #141414)' }}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto p-4">
-
-        <span className="text-purple-600 font-semibold text-base lg:text-xl">SPOILFLIX</span>
+        
+        <Link href="/">
+        <Image src="/images/logo.png" alt="Logo" width={50} height={50} />
+        </Link>
 
         <div className='flex flex-row'>
           <div className="flex items-center px-5">
