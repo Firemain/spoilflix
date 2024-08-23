@@ -5,7 +5,7 @@ export default function MovieCard({ movie, height, width }) {
   const { title, poster_path, vote_average } = movie;
 
   return (
-    <div className="relative movie-card w-1/6 px-2 overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+    <div className="relative movie-card w-1/3 sm:w-1/5 lg:w-1/6 px-2 overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
       
       <Image
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}

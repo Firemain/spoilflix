@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 opacity-90"
+      className="fixed w-full top-0 left-0 right-0 z-50 opacity-90"
       style={{ background: 'linear-gradient(to bottom, #1e1923, #141414)' }}
     >
       <div className="flex flex-wrap items-center justify-between mx-auto p-4">

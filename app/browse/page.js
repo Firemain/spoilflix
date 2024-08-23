@@ -34,7 +34,7 @@ export default async function Home() {
   const randomMovie = getRandomMovie(topMovies);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-4">
+    <main className="flex w-full min-h-screen flex-col items-center justify-between p-4">
 
       <FeaturedSection movie={randomMovie}></FeaturedSection>
 
