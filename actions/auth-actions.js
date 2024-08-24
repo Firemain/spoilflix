@@ -1,9 +1,7 @@
 "use server";
 
-import { createAuthSession } from '@/lib/auth';
 import { hashUserPassword } from '@/lib/hash';
 import { redirect } from 'next/navigation';
-import { NextResponse } from 'next/server';
 
 
 async function createUser(username, email, password) {
