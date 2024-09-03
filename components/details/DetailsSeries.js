@@ -11,7 +11,7 @@ const DetailsSeries = ({ serieId }) => {
     useEffect(() => {
         const fetchSeriesDetails = async () => {
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`);
+                const response = await fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=${process.env.TMDB_API_KEY}`);
                 const data = await response.json();
                 setSeries(data);
                 console.log('Series details:', data);
