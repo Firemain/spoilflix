@@ -2,6 +2,7 @@
 
 import { hashUserPassword } from '@/lib/hash';
 import { redirect } from 'next/navigation';
+import { createAuthSession } from '@/lib/auth';
 
 
 async function createUser(username, email, password) {
@@ -27,15 +28,15 @@ async function createUser(username, email, password) {
     } catch (error) {
       if (error.message === 'Email already exists') {
         console.error('This email is already registered.');
-        return {errors: error.message}
+        throw new Error('This email is already registered.');
         // Display a user-friendly message in the UI
       } else if (error.message === 'Username already exists') {
         console.error('This username is already taken.');
-        return {errors: error.message}
+        throw new Error('This username is already taken.'); 
         // Display a user-friendly message in the UI
       } else {
         console.error('Error:', error.message);
-        return {errors: error.message}
+        throw new Error('Failed to sign up');        
         // Handle other errors
       }
 
@@ -73,7 +74,7 @@ export async function signup(formData) {
       userId = await createUser(username, email, hashedPassword);
       console.log('userId:', userId);
 
-      //await createAuthSession(userId);      
+      await createAuthSession(userId);      
 
     } catch (error) {
       console.error('Error creating user:', error.message);

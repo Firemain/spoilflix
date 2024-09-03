@@ -12,32 +12,35 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [previousUrl, setPreviousUrl] = useState(null); // Store the previous URL
   const router = useRouter();
-
-  useEffect(() => {
-    // Cette fonction est uniquement exécutée sur le client
-  }, []);
 
   const handleSearchChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
+
     if (query.trim().length > 0) {
+      if (!previousUrl) {
+        setPreviousUrl(window.location.pathname); // Store the current URL before searching
+      }
       router.push(`/search/${encodeURIComponent(query)}`);
-    } else {
-      router.push('/browse');
     }
   };
 
   const handleCloseSearch = () => {
     setIsSearchOpen(false);
     setSearchQuery('');
-    router.push('/browse');
+    if (searchQuery.trim().length === 0 && previousUrl) {
+      // If no query was entered, navigate back to the stored URL
+      router.push(previousUrl);
+      setPreviousUrl(null);
+    }
   };
 
   const navlinks = [
     { href: '/', title: 'Movies' },
     { href: '/', title: 'Series' },
-    // Ajouter d'autres liens ici
+    // Add other links here
   ];
 
   return (
@@ -71,11 +74,7 @@ export default function Navbar() {
                 </div>
                 <XMarkIcon
                   className="w-6 text-white cursor-pointer"
-                  onClick={() => {
-                    setIsSearchOpen(false);
-                    setSearchQuery('');
-                    handleCloseSearch();
-                  }}
+                  onClick={handleCloseSearch}
                 />
               </>
             )}
